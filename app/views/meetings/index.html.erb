@@ -1,0 +1,36 @@
+<div>
+	<h1>Listing <%= pluralize(@meeting.size, "Event") %></h1>
+</div>
+
+<table>
+	<thead>
+		<tr>
+			<td>Name</td>
+			<td>Date</td>
+			<td>Start Time</td>
+			<td>End Time</td>
+		</tr>
+	</thead>
+
+	<tbody>
+		<% @meeting.each do |meeting| %>
+		<tr>
+			<td> <%= meeting.name %> </td>
+			<td> <%= meeting.date %> </td>
+			<td> <%= meeting.start_time %> </td>
+			<td> <%= meeting.end_time %> </td>
+			<td>
+				<%= link_to "More Info", meeting_path(meeting.id) %> |
+				<%= link_to "Edit Info", meeting_edit_path(meeting.id) %> |
+				<%= link_to "Delete Event", meeting_path(meeting.id), data: {method: :delete, confirm: "Are you sure?"} %>
+			</td>
+		</tr>
+		<% end %>
+	</tbody>
+	
+</table>
+
+<div id="options">
+	<%= link_to "New Event", meetings_new_path %> |
+	<%= link_to "Log Out", destroy_user_session_path, method: :delete%>
+</div>

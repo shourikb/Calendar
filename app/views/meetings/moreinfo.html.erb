@@ -1,0 +1,26 @@
+<h1>More info on <%= @meeting.name %> </h1>
+
+<div>
+	<table>
+		<thead>
+			<tr>
+				<td>Name</td>
+				<td>Start Time</td>
+				<td>End Time</td>
+				<td>Description</td>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td><%=@meeting.name %></td>
+				<td><%=@meeting.start_time %></td>
+				<td><%=@meeting.end_time %></td>
+				<td><%=@meeting.description %></td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+
+<div id="options">
+	<%= link_to "Back", meetings_path %>
+</div>
